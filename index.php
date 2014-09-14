@@ -5,6 +5,7 @@
  *
  * @author Joseph W. Becher <jwbecher@gmail.com>
  * @package cpanel-ddns
+ *
  */
 /**
  * See config.example.php for details on this file

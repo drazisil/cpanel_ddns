@@ -1,0 +1,15 @@
+{
+    "name": "drazisil/CPanel_DDNS",
+    "description": "A DDNS server interface for CPanel",
+    "minimum-stability": "stable",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "author's name",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+        "phpmd/phpmd": "2.1.1"
+    }
+}
