@@ -2,7 +2,7 @@
 
 /**
  * cpanel-ddns
- * 
+ *
  * @author Joseph W. Becher <jwbecher@gmail.com>
  * @package cpanel-ddns
  */
@@ -12,13 +12,14 @@
 $cpanel_ddns_error_messages = array();
 
 /**
- * 
+ *
  * Checks an IP against an ACL
- * 
+ *
  * @param string $ip
  * @return boolean
  */
-function cpanel_ddns_CheckClientACL($ip) {
+function cpanel_ddns_CheckClientACL($ip)
+{
     if (is_array(ALLOWED_IPS)) {
         // ALLOWED_IPS is an array of IP addresses
     } else {
@@ -32,10 +33,11 @@ function cpanel_ddns_CheckClientACL($ip) {
 
 /**
  * Uses the cpanel_api to query the XML API of cpanel for the DNS zone records
- * 
+ *
  * @return xml $xmlZone
  */
-function cpanel_ddns_FetchDNSZoneFile() {
+function cpanel_ddns_FetchDNSZoneFile()
+{
     require_once 'classes/cpanel_api_cpanelAPI.php';
     $cpanelAPI = new cpanel_api_cpanelAPI(CPANEL_DOMAIN, CPANEL_UN, CPANEL_PW);
     $tmpData = $cpanelAPI->SendAPICall('ZoneEdit', 'fetchzone', '&domain=' . ZONE_DOMAIN);
@@ -45,19 +47,20 @@ function cpanel_ddns_FetchDNSZoneFile() {
 
 /**
  * Updates a DNS record with an IP address
- * 
+ *
  * @param array $zoneRecordToUpdate
  * @param string $ipAddress
  * @return xml
  */
-function cpanel_ddns_UpdateDNSZoneFile($zoneRecordToUpdate, $ipAddress) {
+function cpanel_ddns_UpdateDNSZoneFile($zoneRecordToUpdate, $ipAddress)
+{
 
     require_once 'classes/cpanel_api_cpanelAPI.php';
     $cpanelAPI = new cpanel_api_cpanelAPI(CPANEL_DOMAIN, CPANEL_UN, CPANEL_PW);
     $tmpData = $cpanelAPI->SendAPICall('ZoneEdit', 'edit_zone_record', '&domain=' . ZONE_DOMAIN
-            . '&Line=' . $zoneRecordToUpdate['Line']
-            . '&type=A'
-            . '&address=' . $ipAddress
+        . '&Line=' . $zoneRecordToUpdate['Line']
+        . '&type=A'
+        . '&address=' . $ipAddress
     );
     $zoneXML = simplexml_load_string($tmpData)->data;
     return $zoneXML;
@@ -65,12 +68,13 @@ function cpanel_ddns_UpdateDNSZoneFile($zoneRecordToUpdate, $ipAddress) {
 
 /**
  * Search for a host in the DNS Zone file and return the details in an array
- * 
+ *
  * @param xml $zoneXML
  * @param string $host
  * @return array
  */
-function cpanel_ddns_SearchForHostInZoneFile($zoneXML, $host) {
+function cpanel_ddns_SearchForHostInZoneFile($zoneXML, $host)
+{
 // Count the number of zone records
     $dns_records_count = count($zoneXML->children()); // PHP < 5.3 version
 
@@ -120,17 +124,19 @@ function cpanel_ddns_SearchForHostInZoneFile($zoneXML, $host) {
 
 /**
  * Adds an error message to the cpanel_ddns_error_messages array
- * 
+ *
  * @global array $cpanel_ddns_error_messages
  * @param string $message
  */
-function cpanel_ddns_ErrorMessageAdd($message) {
+function cpanel_ddns_ErrorMessageAdd($message)
+{
     global $cpanel_ddns_error_messages;
 
     $cpanel_ddns_error_messages[] = $message;
 }
 
-function cpanel_ddns_ErrorMessagesDisplay() {
+function cpanel_ddns_ErrorMessagesDisplay()
+{
     global $cpanel_ddns_error_messages;
 
     foreach ($cpanel_ddns_error_messages as $errMsg) {
@@ -141,13 +147,14 @@ function cpanel_ddns_ErrorMessagesDisplay() {
 
 /**
  * Retrieves a single DNS record from the zone file XML
- * 
+ *
  * @param xml $zoneXML
  * @param int $recordNumber
  * @return array $zone_record
  */
-function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber) {
-    $zone_record['type'] = (string) $zoneXML->record[$recordNumber]->type;
+function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber)
+{
+    $zone_record['type'] = (string)$zoneXML->record[$recordNumber]->type;
 //    echo ' % ' . $zone_record['type'] . ' % ';
     /*
      * Check what type of record we are reading
@@ -155,7 +162,7 @@ function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber) {
     switch ($zone_record['type']) {
         case 'SOA':
 
-            $zone_record['serial'] = (string) $zoneXML->record[$recordNumber]->serial;
+            $zone_record['serial'] = (string)$zoneXML->record[$recordNumber]->serial;
 //            echo ' % ' . $zone_record['serial'] . ' % ';
             break;
         case 'A':
@@ -174,19 +181,19 @@ function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber) {
              * type
              * 
              */
-            $zone_record['Line'] = (string) $zoneXML->record[$recordNumber]->Line;
+            $zone_record['Line'] = (string)$zoneXML->record[$recordNumber]->Line;
 //            echo ' % ' . $zone_record['Line'] . ' % ';
 
-            $zone_record['ttl'] = (string) $zoneXML->record[$recordNumber]->ttl;
+            $zone_record['ttl'] = (string)$zoneXML->record[$recordNumber]->ttl;
 //            echo ' % ' . $zone_record['ttl'] . ' % ';
 
-            $zone_record['address'] = (string) $zoneXML->record[$recordNumber]->address;
+            $zone_record['address'] = (string)$zoneXML->record[$recordNumber]->address;
 //            echo ' % ' . $zone_record['address'] . ' % ';
 
-            $zone_record['name'] = (string) $zoneXML->record[$recordNumber]->name;
+            $zone_record['name'] = (string)$zoneXML->record[$recordNumber]->name;
 //            echo ' % ' . $zone_record['name'] . ' % ';
 
-            $zone_record['class'] = (string) $zoneXML->record[$recordNumber]->class;
+            $zone_record['class'] = (string)$zoneXML->record[$recordNumber]->class;
 //            echo ' % ' . $zone_record['class'] . ' % ';
 
             break;

@@ -2,11 +2,11 @@
 
 /**
  * updateDNS
- * 
+ *
  * This file will serve as the server endpoint that the client connects to.
- * 
+ *
  * Will take both GET and POST requests for plain-text and authenticated updates
- * 
+ *
  * @author Joseph W. Becher <jwbecher@gmail.com>
  * @package cpanel-ddns
  */
@@ -20,11 +20,11 @@ require_once 'functions.php';
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         // The request was sent via GET. Plain-text authentication
-        $the_request = &$_GET;
+        $the_request = & $_GET;
         break;
     case 'POST':
         // The update was sent via POST. It likely contains a username and password
-        $the_request = &$_POST;
+        $the_request = & $_POST;
         break;
     default:
         // Unknown request type
@@ -76,7 +76,7 @@ if ($zone_record_to_update == FALSE) {
     cpanel_ddns_ErrorMessagesDisplay();
 }
 
-echo 'The requested host record for '.$host_to_update.' was found in the zone file in line '.$zone_record_to_update['Line'].'.'.PHPBR;
+echo 'The requested host record for ' . $host_to_update . ' was found in the zone file in line ' . $zone_record_to_update['Line'] . '.' . PHPBR;
 $updated_record = $dns_zones_XML = cpanel_ddns_UpdateDNSZoneFile($zone_record_to_update, $ip_to_update);
 
 //echo $updated_record;
