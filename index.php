@@ -25,8 +25,8 @@ if ($zone_record_to_update == FALSE) {
     cpanel_ddns_ErrorMessagesDisplay();
 }
 
-echo 'The host' . $zone_record_to_update['name'] . ' currently points to IP address ' . $zone_record_to_update['address'] . PHPBR;
+echo 'The host ' . $zone_record_to_update['name'] . ' currently points to IP address ' . $zone_record_to_update['address'] . PHPBR;
 
 //print_r($zone_record_to_update);
 //echo $dns_records_count;
-?>
+
