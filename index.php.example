@@ -21,7 +21,7 @@ require_once 'functions.php';
 $dns_zones_XML = cpanel_ddns_FetchDNSZoneFile();
 
 
-$zone_record_to_update = cpanel_ddns_SearchForHostInZoneFile($dns_zones_XML, 'pinger.jwebnet.net');
+$zone_record_to_update = cpanel_ddns_SearchForHostInZoneFile($dns_zones_XML, '<host goes here>');
 if ($zone_record_to_update == FALSE) {
     cpanel_ddns_ErrorMessagesDisplay();
 }
