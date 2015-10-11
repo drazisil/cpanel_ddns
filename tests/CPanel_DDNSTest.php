@@ -1,7 +1,7 @@
 <?php
 namespace Drazisil\CPanel_DDNS;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 class CPanelD_DNSTest extends \PHPUnit_Framework_TestCase
 {
