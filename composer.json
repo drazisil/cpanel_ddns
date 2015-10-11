@@ -1,8 +1,8 @@
 {
-    "name": "drazisil/CPanel_DDNS",
+    "name": "cpanel_ddns/cpanel_ddns",
     "description": "A DDNS server interface for CPanel",
     "minimum-stability": "stable",
-    "license": "GPL-3.0+",
+    "license": "MIT",
     "authors": [
         {
             "name": "Joseph W Becher (drazisil)",
