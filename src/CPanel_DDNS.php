@@ -1,5 +1,5 @@
 <?php
-namespace drazisil\CPanel_DDNS;
+namespace cpanel_ddns\cpanel_ddns;
 
 /**
  * Class CPanel_DDNS
