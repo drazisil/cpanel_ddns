@@ -1,5 +1,5 @@
 <?php
-use cpanel_ddns/cpanel_ddns/CPanel_DDNS;
+use cpanel_ddns\cpanel_ddns\CPanel_DDNS;
 
 Class CPanel_DDNSTest extends \PHPUnit_Framework_TestCase
 {
