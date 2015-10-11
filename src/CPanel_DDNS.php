@@ -2,8 +2,8 @@
 namespace cpanel_ddns\cpanel_ddns;
 
 /**
- * Class CPanel_DDNS
- * @package Drazisil\CPanel_DDNS
+ * Class CPanel-DDNS
+ * @package Drazisil\CPanel-DDNS
  */
 class CPanel_DDNS
 {
