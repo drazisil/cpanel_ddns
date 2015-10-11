@@ -1,7 +1,7 @@
 <?php
-namespace cpanel\cpanel_ddns\Tests;
+namespace cpanel_ddns\cpanel_ddns\Tests;
 
-Class CPanel_DDNSTest extends PHPUnit_Framework_TestCase
+Class CPanel_DDNSTest extends \PHPUnit_Framework_TestCase
 {
     // ...
 
