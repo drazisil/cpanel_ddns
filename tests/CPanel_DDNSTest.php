@@ -3,16 +3,16 @@ namespace Drazisil\CPanel_DDNS;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use \Drazisil\CPanel_DDNS as cpanel_ddns;
+use \Drazisil\CPanel_DDNS;
 
-class CPanelD_DNSTest extends \PHPUnit_Framework_TestCase
+class CPanel_DDNSTest extends \PHPUnit_Framework_TestCase
 {
     // ...
 
     public function testCanReadConfig()
     {
         // Arrange
-        $cp_ddns = new \Drazisil\CPanel_DDNS(1);
+        $cp_ddns = new CPanel_DDNS(1);
 
         // Act
         $config = $a->fetchConfig();
