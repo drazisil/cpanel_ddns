@@ -3,6 +3,8 @@ namespace Drazisil\CPanel_DDNS;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use \Drazisil\CPanel_DDNS as cpanel_ddns;
+
 class CPanelD_DNSTest extends \PHPUnit_Framework_TestCase
 {
     // ...
