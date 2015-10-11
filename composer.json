@@ -17,7 +17,7 @@
     },
     "autoload": {
 		"psr-0": {
-			"CpanelDDNS": "lib/"
+			"CpanelDDNS": "src/"
 		}
     }
 }
