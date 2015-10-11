@@ -1,5 +1,5 @@
 <?php
-require "../lib/Drazisil/CPanel_DDNS/CPanel_DDNS.php";
+require "lib/Drazisil/CPanel_DDNS/CPanel_DDNS.php";
 
 class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 {
