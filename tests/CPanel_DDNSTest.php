@@ -1,11 +1,7 @@
 <?php
-namespace drazisil\CPanel_DDNS;
+namespace cpanel\cpanel_ddns\Tests;
 
-require __DIR__ . '/../vendor/autoload.php';
-
-use drazisil\CPanel_DDNS\CPanel_DDNS;
-
-class CPanel_DDNSTest extends PHPUnit_Framework_TestCase
+Class CPanel_DDNSTest extends PHPUnit_Framework_TestCase
 {
     // ...
 
