@@ -1,7 +1,7 @@
 <?php
-require "lib/Drazisil/CPanel_DDNS/CPanel_DDNS.php";
-
 namespace Drazisil\CPanel_DDNS;
+
+require "lib/Drazisil/CPanel_DDNS/CPanel_DDNS.php";
 
 class CPanelDDNSTest extends PHPUnit_Framework_TestCase
 {
