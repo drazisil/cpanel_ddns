@@ -30,7 +30,7 @@ class CpanelDDNS {
     }
     
     public function setAclMode($mode) {
-        throw new Exception($mode . 'Is not supported!');
+        throw new \Exception($mode . 'Is not supported!');
     }
 }
 /**
