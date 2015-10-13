@@ -18,6 +18,10 @@ class CpanelDDNS {
     public function setAclModeDefault() {
         $this->aclMode = 'single';
     }
+    
+    public function getAclMode() {
+        return $this->aclMode;
+    }
 
     public function fetchConfig() {
         return [
