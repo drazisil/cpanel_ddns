@@ -28,7 +28,7 @@ class CpanelDDNS {
             case 'single':
             case 'multi':
             case 'range':
-                throw new \Exception('ACL mode ' . $mode . ' is not yet implimented!');
+                throw new \Exception('ACL mode ' . $this->aclMode . ' is not yet implimented!');
             default:
                 throw new \Exception('ACL not in a valid mode!');
         }
