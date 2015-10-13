@@ -8,6 +8,16 @@ namespace CpanelDDNS;
  */
  
 class CpanelDDNS {
+ 
+    protected aclMode = 'single';
+  
+    public function __construct() {
+        $this->aclMode = 'single';
+    }
+  
+    public function setAclModeDefault() {
+        $this->aclMode = 'single';
+    }
 
     public function fetchConfig() {
         return [
