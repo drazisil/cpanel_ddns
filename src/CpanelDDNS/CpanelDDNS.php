@@ -9,7 +9,7 @@ namespace CpanelDDNS;
  
 class CpanelDDNS {
  
-    protected aclMode = 'single';
+    protected $aclMode = 'single';
   
     public function __construct() {
         $this->aclMode = 'single';
