@@ -23,7 +23,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
      */
     public function testIsAclDefaultModeSingle()
     {
-        $cddns->defaultAclMode();
+        $this->cddns->defaultAclMode();
 
         $aclMode =  $this->cddns->getAclMode();
 
