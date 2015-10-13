@@ -35,7 +35,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
      */
     public function testSetAclModeSingle()
     {
-        $this->cddns->defaultAclMode();
+        $this->cddns->setAclModeDefault();
 
         $this->cddns->setAclMode('single');
 
@@ -74,7 +74,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
      **/
     public function testSetAclModeMulti()
     {
-        $this->cddns->defaultAclMode();
+        $this->cddns->setAclModeDefault();
 
         $this->cddns->setAclMode('multi');
 
@@ -88,7 +88,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
      **/
     public function testSetAclModeRange()
     {
-        $this->cddns->defaultAclMode();
+        $this->cddns->setAclModeDefault();
 
         $this->cddns->setAclMode('range');
 
