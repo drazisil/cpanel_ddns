@@ -22,6 +22,17 @@ class CpanelDDNS {
     public function getAclMode() {
         return $this->aclMode;
     }
+    
+    public function checkAclAllowed($ip) {
+        switch ($this->aclMode) {
+            case 'single':
+            case 'multi':
+            case 'range':
+                throw new \Exception('ACL mode ' . $mode . ' is not yet implimented!');
+            default:
+                throw new \Exception('ACL not in a valid mode!');
+        }
+    }
 
     public function fetchConfig() {
         return [
