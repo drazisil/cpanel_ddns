@@ -29,8 +29,24 @@ class CpanelDDNS {
         ];
     }
     
+    /**
+     * Set the ACL mode.
+     * Options are:
+     * * single
+     * * multi
+     * * range
+     * */
     public function setAclMode($mode) {
-        throw new \Exception($mode . 'Is not supported!');
+        switch ($mode) {
+            case 'single':
+            case 'multi':
+            case 'range':
+                $this->aclMode = $mode;
+                return true;
+            default:
+                throw new \Exception($mode . ' is not supported!');
+                return false;
+        }
     }
 }
 /**
