@@ -28,6 +28,10 @@ class CpanelDDNS {
             "domain" => "moo"
         ];
     }
+    
+    public function setAclMode($mode) {
+        throw new Exception($mode . 'Is not supported!');
+    }
 }
 /**
  * This array holds error messages for user display
