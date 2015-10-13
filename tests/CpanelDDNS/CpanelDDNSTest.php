@@ -50,7 +50,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     public function testInACLSingleIpValid()
     {
         // Act
-        $config =  $this->cddns->checkIpAcl('192.168.5.1');
+        $config =  $this->cddns->checkAclAllowed('192.168.5.1');
 
         // Assert
         $this->assertEquals("moo", $config['domain']);
@@ -63,7 +63,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     public function testInACLSingleIpInvalid()
     {
         // Act
-        $config =  $this->cddns->checkIpAcl('192.168.5.0');
+        $config =  $this->cddns->checkAclAllowed('192.168.5.0');
 
         // Assert
         $this->assertEquals("moo", $config['domain']);
