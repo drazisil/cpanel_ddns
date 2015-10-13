@@ -21,7 +21,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test ACL mode defaults to to single ip
      */
-    public function testInACLEnabledSingle()
+    public function testIsAclDefaultModeSingle()
     {
         $cddns->defaultAclMode();
 
@@ -33,7 +33,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test if able to set ACL mode to single ip
      */
-    public function testInACLEnabledSingle()
+    public function testSetAclModeSingle()
     {
         $cddns->defaultAclMode();
 
@@ -45,7 +45,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testACLEnabledSingle
+     * @depends testSetAclModeSingle
      */
     public function testInACLSingleIpValid()
     {
@@ -58,7 +58,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
     
     /**
-     * @depends testACLEnabledSingle
+     * @depends testSetAclModeSingle
      */
     public function testInACLSingleIpInvalid()
     {
@@ -72,7 +72,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Check if can set ACL mode to multipule ips
      **/
-    public function testInACLEnabledMulti()
+    public function testSetAclModeMulti()
     {
         $cddns->defaultAclMode();
 
@@ -86,7 +86,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Check if can set ACL mode to range of ips
      **/
-    public function testInACLEnabledRange()
+    public function testSetAclModeRange()
     {
         $cddns->defaultAclMode();
 
