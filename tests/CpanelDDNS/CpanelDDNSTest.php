@@ -172,8 +172,6 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
         $aclMode =  $this->cddns->getAclMode();
 
         $this->assertEquals('range', $aclMode);
-
-        $this->assertEquals(false, $isAllowed);
     }
 
     /**
