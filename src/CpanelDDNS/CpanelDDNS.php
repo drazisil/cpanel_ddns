@@ -41,6 +41,10 @@ class CpanelDDNS {
         return true;
     }
     
+    public function addAclMulti($ipList) {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
+    }
+    
     public function checkAclAllowed($ip) {
         switch ($this->aclMode) {
             case 'single':
