@@ -10,6 +10,8 @@ namespace CpanelDDNS;
 class CpanelDDNS {
  
     protected $aclMode = 'single';
+    
+    private $aclListSingle = '';
   
     public function __construct() {
         $this->aclMode = 'single';
@@ -23,14 +25,30 @@ class CpanelDDNS {
         return $this->aclMode;
     }
     
+    /**
+     * Set ACL to s single op. Throw exception if not in single mode
+     */
+    public function addAclSingle($ip) {
+        if ($this->aclMode != 'single') {
+            throw new \Exception('ACL_MODE_INCORRECT');
+            return false;
+        }
+        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+            throw new \Exception('ACL_IP_INVALID!');
+            return false;
+        }
+        $this->aclListSingle = $ip;
+        return true;
+    }
+    
     public function checkAclAllowed($ip) {
         switch ($this->aclMode) {
             case 'single':
             case 'multi':
             case 'range':
-                throw new \Exception('ACL mode ' . $this->aclMode . ' is not yet implimented!');
+                throw new \Exception('ACL_MODE_NOT_IMPLEMENTED');
             default:
-                throw new \Exception('ACL not in a valid mode!');
+                throw new \Exception('ACL_MODE_INVALID');
         }
     }
 
@@ -55,7 +73,7 @@ class CpanelDDNS {
                 $this->aclMode = $mode;
                 return true;
             default:
-                throw new \Exception($mode . ' is not supported!');
+                throw new \Exception('ACL_MODE_NOT_SUPPORTED');
                 return false;
         }
     }
