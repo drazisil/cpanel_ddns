@@ -54,6 +54,7 @@ class CpanelDDNS {
     }
 
     public function fetchConfig() {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
         return [
             "domain" => "moo"
         ];
