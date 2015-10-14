@@ -113,7 +113,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('multi');
         
-        $ipMulti = ['192.168.5.1, 192.168.5.2']
+        $ipMulti = ['192.168.5.1, 192.168.5.2'];
         
         $this->cddns->addAclMulti($ipMulti);
         
@@ -133,7 +133,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('multi');
         
-        $ipMulti = ['192.168.5.1, 192.168.5.2']
+        $ipMulti = ['192.168.5.1, 192.168.5.2'];
         
         $this->cddns->addAclMulti($ipMulti);
         
@@ -151,7 +151,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('multi');
         
-        $ipMulti = ['192.168.5.1, 192.168.5.2', '192.168.5']
+        $ipMulti = ['192.168.5.1, 192.168.5.2', '192.168.5'];
         
         $this->cddns->addAclMulti($ipMulti);
         
@@ -185,7 +185,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('range');
 
-        $ipRange = ['192.168.5.1, 192.168.5.2']
+        $ipRange = ['192.168.5.1, 192.168.5.2'];
         
         $this->cddns->addAclRange($ipRange);
         
@@ -204,7 +204,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('range');
 
-        $ipRange = ['192.168.5.1/24']
+        $ipRange = ['192.168.5.1/24'];
         
         $this->cddns->addAclRange($ipRange);
         
@@ -222,7 +222,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('range');
 
-        $ipRange = ['192.168.5.1, 192.168.5.2']
+        $ipRange = ['192.168.5.1, 192.168.5.2'];
         
         $this->cddns->addAclRange($ipRange);
         
@@ -240,7 +240,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         $this->cddns->setAclMode('range');
 
-        $ipRange = ['192.168.5.1, 192.168.5.2']
+        $ipRange = ['192.168.5.1, 192.168.5.2'];
         
         $this->cddns->addAclRange($ipRange);
         
