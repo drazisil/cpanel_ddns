@@ -45,6 +45,10 @@ class CpanelDDNS {
         throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
     }
     
+    public function addAclRange($ipRange) {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
+    }
+    
     public function checkAclAllowed($ip) {
         switch ($this->aclMode) {
             case 'single':
