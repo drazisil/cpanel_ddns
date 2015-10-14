@@ -179,7 +179,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test if a valid IP is accepted in range mode as a from->to
      */
-    public function testInACLSingleIpAllowed()
+    public function testInACLRangeIpAllowedFromTo()
     {
         $this->cddns->setAclModeDefault();
 
@@ -198,7 +198,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test if a valid IP is accepted in range mode as a subnet
      */
-    public function testInACLSingleIpAllowed()
+    public function testInACLRangeIpAllowedCIDR()
     {
         $this->cddns->setAclModeDefault();
 
@@ -216,7 +216,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test if an not allowed ip is rejected by the ACL in range mode
      */
-    public function testInACLSingleIpNotAllowed()
+    public function testInACLRangeIpNotAllowed()
     {
         $this->cddns->setAclModeDefault();
 
@@ -234,7 +234,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     /**
      * Test if an invalid ip is rejected by the ACL in single mode
      */
-    public function testInACLSingleIpInvalid()
+    public function testInACLRangeIpInvalid()
     {
         $this->cddns->setAclModeDefault();
 
