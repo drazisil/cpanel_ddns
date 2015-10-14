@@ -45,32 +45,39 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSetAclModeSingle
+     * Test if a valid IP is accepted in single mode
      */
     public function testInACLSingleIpValid()
     {
-        // Act
-        $config =  $this->cddns->checkAclAllowed('192.168.5.1');
+        $this->cddns->setAclModeDefault();
+
+        $this->cddns->setAclMode('single');
+        
+        $this->cddns->addAclSingle('192.168.5.1');
+        
+        $isAllowed =  $this->cddns->checkAclAllowed('192.168.5.1');
 
         // Assert
-        $this->assertEquals("moo", $config['domain']);
+        $this->assertEquals(true, $isAllowed);
     }
 
     
     /**
-     * @depends testSetAclModeSingle
+     * Test if an invalid ip is rejected by the ACL in single mode
      */
     public function testInACLSingleIpInvalid()
     {
-        // Act
-        $config =  $this->cddns->checkAclAllowed('192.168.5.0');
+        $this->cddns->setAclModeDefault();
 
-        // Assert
-        $this->assertEquals("moo", $config['domain']);
+        $this->cddns->setAclMode('single');
+        
+        $isAllowed =  $this->cddns->checkAclAllowed('192.168.5.0');
+
+        $this->assertEquals(false, $isAllowed);
     }
 
     /**
-     * Check if can set ACL mode to multipule ips
+     * Check if can set ACL mode to multiple ips
      **/
     public function testSetAclModeMulti()
     {
