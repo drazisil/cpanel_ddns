@@ -9,6 +9,15 @@ namespace CpanelDDNS;
 
 class CpanelDDNS {
 
+    private $config = [
+        'CPANEL_DOMAIN' => '',
+        'CPANEL_USERNAME' => '',
+        'CPANEL_PASSWORD' => ''.
+        'ZONE_DOMPAIN' => '',
+        'AP_ACCESS_MODE' => '',
+        'ALLOWED_IPS' => ''
+    ];
+    
     protected $aclMode = 'single';
 
     private $aclListSingle = '';
@@ -64,6 +73,8 @@ class CpanelDDNS {
         if (!file_exists('./config.php')) {
             throw new \Exception('CONFIG_FILE_NOT_FOUND');
         }
+        require_once('./config.php');
+        $this->config['CPANEL_DOMAIN'] = CPANEL_DOMAIN;
         throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
         return [
             "domain" => "moo"
