@@ -8,23 +8,23 @@ namespace CpanelDDNS;
  */
 
 class CpanelDDNS {
- 
+
     protected $aclMode = 'single';
-    
+
     private $aclListSingle = '';
   
     public function __construct() {
         $this->aclMode = 'single';
     }
-  
+
     public function setAclModeDefault() {
         $this->aclMode = 'single';
     }
-    
+
     public function getAclMode() {
         return $this->aclMode;
     }
-    
+
     /**
      * Set ACL to s single op. Throw exception if not in single mode
      */
@@ -40,7 +40,7 @@ class CpanelDDNS {
         $this->aclListSingle = $ip;
         return true;
     }
-    
+
     public function addAclMulti($ipList) {
         throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
     }
