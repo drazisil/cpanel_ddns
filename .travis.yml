@@ -10,7 +10,6 @@ before_script:
 - composer self-update
 - composer dump-autoload
 - composer install
-- touch config.php
 script:
 - phpunit tests
 after_script:
