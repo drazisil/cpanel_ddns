@@ -8,11 +8,83 @@ namespace CpanelDDNS;
  */
 
 class CpanelDDNS {
-
+ 
+    protected $aclMode = 'single';
+    
+    private $aclListSingle = '';
+  
+    public function __construct() {
+        $this->aclMode = 'single';
+    }
+  
+    public function setAclModeDefault() {
+        $this->aclMode = 'single';
+    }
+    
+    public function getAclMode() {
+        return $this->aclMode;
+    }
+    
+    /**
+     * Set ACL to s single op. Throw exception if not in single mode
+     */
+    public function addAclSingle($ip) {
+        if ($this->aclMode != 'single') {
+            throw new \Exception('ACL_MODE_INCORRECT');
+            return false;
+        }
+        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+            throw new \Exception('ACL_IP_INVALID!');
+            return false;
+        }
+        $this->aclListSingle = $ip;
+        return true;
+    }
+    
+    public function addAclMulti($ipList) {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
+    }
+    
+    public function addAclRange($ipRange) {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
+    }
+    
+    public function checkAclAllowed($ip) {
+        switch ($this->aclMode) {
+            case 'single':
+                return $this->aclListSingle == $ip;
+            case 'multi':
+            case 'range':
+                throw new \Exception('ACL_MODE_NOT_IMPLEMENTED');
+            default:
+                throw new \Exception('ACL_MODE_INVALID');
+        }
+    }
     public function fetchConfig() {
+        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
         return [
             "domain" => "moo"
         ];
+    }
+    
+    /**
+     * Set the ACL mode.
+     * Options are:
+     * * single
+     * * multi
+     * * range
+     * */
+    public function setAclMode($mode) {
+        switch ($mode) {
+            case 'single':
+            case 'multi':
+            case 'range':
+                $this->aclMode = $mode;
+                return true;
+            default:
+                throw new \Exception('ACL_MODE_NOT_SUPPORTED');
+                return false;
+        }
     }
 }
 /**
