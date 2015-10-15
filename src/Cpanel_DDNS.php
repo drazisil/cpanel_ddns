@@ -6,7 +6,7 @@ namespace CpanelDDNS;
  * @author Joseph W. Becher <jwbecher@gmail.com>
  * @package cpanel-ddns
  */
- 
+
 class CpanelDDNS {
 
     public function fetchConfig() {
@@ -21,7 +21,6 @@ class CpanelDDNS {
 $cpanel_ddns_error_messages = array();
 
 /**
- *
  * Checks an IP against an ACL
  *
  * @param string $ip
@@ -63,7 +62,6 @@ function cpanel_ddns_FetchDNSZoneFile()
  */
 function cpanel_ddns_UpdateDNSZoneFile($zoneRecordToUpdate, $ipAddress)
 {
-
     require_once 'classes/cpanel_api_cpanelAPI.php';
     $cpanelAPI = new cpanel_api_cpanelAPI(CPANEL_DOMAIN, CPANEL_UN, CPANEL_PW);
     $tmpData = $cpanelAPI->SendAPICall('ZoneEdit', 'edit_zone_record', '&domain=' . ZONE_DOMAIN
@@ -84,7 +82,7 @@ function cpanel_ddns_UpdateDNSZoneFile($zoneRecordToUpdate, $ipAddress)
  */
 function cpanel_ddns_SearchForHostInZoneFile($zoneXML, $host)
 {
-// Count the number of zone records
+    // Count the number of zone records
     $dns_records_count = count($zoneXML->children()); // PHP < 5.3 version
 
     /*
@@ -137,15 +135,13 @@ function cpanel_ddns_SearchForHostInZoneFile($zoneXML, $host)
  * @global array $cpanel_ddns_error_messages
  * @param string $message
  */
-function cpanel_ddns_ErrorMessageAdd($message)
-{
+function cpanel_ddns_ErrorMessageAdd($message) {
     global $cpanel_ddns_error_messages;
 
     $cpanel_ddns_error_messages[] = $message;
 }
 
-function cpanel_ddns_ErrorMessagesDisplay()
-{
+function cpanel_ddns_ErrorMessagesDisplay() {
     global $cpanel_ddns_error_messages;
 
     foreach ($cpanel_ddns_error_messages as $errMsg) {
@@ -161,8 +157,7 @@ function cpanel_ddns_ErrorMessagesDisplay()
  * @param int $recordNumber
  * @return array $zone_record
  */
-function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber)
-{
+function cpanel_ddns_FetchRecordFromXMLByNumber($zoneXML, $recordNumber) {
     $zone_record['type'] = (string)$zoneXML->record[$recordNumber]->type;
 //    echo ' % ' . $zone_record['type'] . ' % ';
     /*
