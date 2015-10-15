@@ -35,7 +35,7 @@ class CpanelDDNS {
     }
 
     /**
-     * Set ACL to s single op. Throw exception if not in single mode
+     * Set ACL to a single ip. Throw exception if not in single mode
      */
     public function addAclSingle($ip) {
         if ($this->aclMode != 'single') {
