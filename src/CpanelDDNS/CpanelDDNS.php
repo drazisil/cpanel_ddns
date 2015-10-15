@@ -13,8 +13,8 @@ class CpanelDDNS {
         'CPANEL_DOMAIN' => '',
         'CPANEL_USERNAME' => '',
         'CPANEL_PASSWORD' => '',
-        'ZONE_DOMPAIN' => '',
-        'AP_ACCESS_MODE' => '',
+        'ZONE_DOMAIN' => '',
+        'IP_ACCESS_MODE' => '',
         'ALLOWED_IPS' => ''
     ];
     
@@ -75,10 +75,12 @@ class CpanelDDNS {
         }
         require_once('./config.php');
         $this->config['CPANEL_DOMAIN'] = CPANEL_DOMAIN;
-        throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
-        return [
-            "domain" => "moo"
-        ];
+        $this->config['CPANEL_USERNAME'] = CPANEL_UN;
+        $this->config['CPANEL_PASSWORD'] = CPANEL_PW;
+        $this->config['ZONE_DOMAIN'] = ZONE_DOMAIN;
+        $this->config['IP_ACCESS_MODE'] = IP_ACCESS_MODE;
+        $this->config['ALLOWED_IPS'] = ALLOWED_IPS;
+        return true;
     }
     
     /**
