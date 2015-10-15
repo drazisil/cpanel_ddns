@@ -61,7 +61,7 @@ class CpanelDDNS {
         }
     }
     public function fetchConfig() {
-        if (!file_exists('../../config.php')) {
+        if (!file_exists('./config.php')) {
             throw new \Exception('CONFIG_FILE_NOT_FOUND');
         }
         throw new \Exception('FUNCTION_NOT_IMPLEMENTED');
