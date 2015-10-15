@@ -11,11 +11,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
      **/
     public function testCanReadConfig()
     {
-        // Act
-        $config =  $this->cddns->fetchConfig();
-
-        // Assert
-        $this->assertEquals("moo", $config['domain']);
+        $this->assertEquals(true, $this->cddns->fetchConfig());
     }
 
     /**
