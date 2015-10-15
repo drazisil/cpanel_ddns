@@ -2,7 +2,7 @@
     "name": "cpanel_ddns/cpanel_ddns",
     "description": "A DDNS server interface for CPanel",
     "require": {
-        "cpanel_api/cpanel_api": "0.1.*"
+        "cpanel_api/cpanel_api": "0.2.*"
     },
     "license": "MIT",
     "authors": [
