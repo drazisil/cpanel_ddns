@@ -12,7 +12,7 @@ class CpanelDDNS {
     private $config = [
         'CPANEL_DOMAIN' => '',
         'CPANEL_USERNAME' => '',
-        'CPANEL_PASSWORD' => ''.
+        'CPANEL_PASSWORD' => '',
         'ZONE_DOMPAIN' => '',
         'AP_ACCESS_MODE' => '',
         'ALLOWED_IPS' => ''
