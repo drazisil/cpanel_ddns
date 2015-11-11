@@ -10,6 +10,7 @@ Class CpanelDDNSTest extends PHPUnit_Framework_TestCase
 
         // Act
         $config =  $cp_ddns->fetchConfig();
+        $config = json_decode($config, true);
 
         // Assert
         $this->assertEquals("moo", $config['domain']);
