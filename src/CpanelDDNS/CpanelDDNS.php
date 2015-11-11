@@ -10,9 +10,9 @@ namespace CpanelDDNS;
 class CpanelDDNS {
 
     public function fetchConfig() {
-        return [
+        return json_encode(array(
             "domain" => "moo"
-        ];
+        ));
     }
 }
 /**
